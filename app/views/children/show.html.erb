@@ -1,0 +1,8 @@
+<h2><%= @child.name %></h2>
+
+<p><%= @child.date_of_birth %></p>
+<p><%= @child.goals %></p>
+<p><%= @child.employee&.name %></p>
+
+<%= link_to 'Redigér barn', edit_child_path(@child) %>
+<%= link_to 'Slet barn', child_path(@child), method: :delete, data: { confirm: 'Slet barn?' } %>
