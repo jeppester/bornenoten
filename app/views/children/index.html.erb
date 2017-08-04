@@ -1,11 +1,13 @@
-<% @children.each do |child| %>
-  <%= link_to child_path(child), class: "child-item" do %>
-    <image class="child-item__image" src="" width="300" height="300" />
-    <h2><%= child.name %></h2>
+<div class="child-list">
+  <% @children.each do |child| %>
+    <%= link_to child_path(child), class: "child-item" do %>
+      <image class="child-item__image" src="" width="300" height="300" />
+      <h2><%= child.name %></h2>
+    <% end %>
   <% end %>
-<% end %>
 
-<%= link_to new_child_path, class: "child-item" do %>
-  <image class="child-item__image" src="" width="300" height="300" />
-  <h2>Opret et nyt barn</h2>
-<% end %>
+  <%= link_to new_child_path, class: "child-item" do %>
+    <image class="child-item__image" src="" width="300" height="300" />
+    <h2>Opret et nyt barn</h2>
+  <% end %>
+</div>
