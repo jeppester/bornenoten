@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170804183355) do
+ActiveRecord::Schema.define(version: 20170805070013) do
 
   create_table "children", force: :cascade do |t|
     t.string "name", default: "", null: false
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20170804183355) do
     t.integer "employee_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "portrait", default: "", null: false
     t.index ["employee_id"], name: "index_children_on_employee_id"
   end
 
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(version: 20170804183355) do
     t.string "name", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "portrait", default: "", null: false
   end
 
   create_table "notes", force: :cascade do |t|

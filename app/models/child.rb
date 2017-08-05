@@ -3,4 +3,6 @@ class Child < ApplicationRecord
   has_many :contacts, dependent: :destroy
   has_many :notes, dependent: :destroy
   validates :name, presence: true
+
+  mount_uploader :portrait, PortraitUploader
 end
