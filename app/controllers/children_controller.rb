@@ -42,7 +42,13 @@ class ChildrenController < ApplicationController
   private
 
   def create_params
-    params.require(:child).permit(:name, :date_of_birth, :goals, :employee_id)
+    params.require(:child).permit(
+      :name,
+      :date_of_birth,
+      :goals,
+      :employee_id,
+      :portrait
+    )
   end
 
   def update_params
