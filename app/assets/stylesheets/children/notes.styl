@@ -1,0 +1,48 @@
+.note-list
+  card-container()
+
+.note-list__row
+  card-row()
+
+.note-item
+  color $base-color
+  width "calc((100% - %s * (%s - 1)) / %s)" % ($base-spacing / 2 $note-row-items $note-row-items)
+  card()
+  height 220px
+  display flex
+  flex-direction column
+
+.note-item__actions
+  flex 0 0 auto
+  font-size 80%
+  line-height ($base-spacing * .5)
+  text-align right
+  display flex
+  justify-content space-between
+  border-bottom 1px solid $spacer-color
+  box-shadow $base-box-shadow
+
+  > a
+    padding ($base-spacing / 2) ($base-spacing / 2)
+
+.note-item__content
+  flex 1 1 auto
+  padding ($base-spacing / 2)
+  display flex
+  flex-direction column
+  overflow-y scroll
+  > p:first-child
+    margin-top 0
+  > p:last-child
+    margin-bottom 0
+
+.note-item__content--new
+  justify-content center
+  text-align center
+  color $base-color
+  > .fa
+    font-size 300%
+    color $brand-color
+  > h2
+    margin-top ($base-spacing / 4)
+    margin-bottom 0

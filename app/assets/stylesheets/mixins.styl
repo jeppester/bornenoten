@@ -1,0 +1,20 @@
+card-container()
+  padding $base-spacing
+
+card-row()
+  display flex
+  margin-bottom ($base-spacing / 2)
+
+  &:last-child
+    margin-bottom 0
+
+card()
+  display block
+  box-shadow $base-box-shadow
+  border-radius $base-border-radius
+  overflow hidden
+  background-color $brand-color-light
+  margin-right ($base-spacing / 2)
+
+  &:last-child
+    margin-right 0

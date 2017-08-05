@@ -1,0 +1,55 @@
+.child-top-row
+  margin-right 0
+  background-color $brand-color-light
+  position relative
+  display flex
+  flex-direction row
+  flex 0 0 auto
+  box-shadow $base-box-shadow
+
+.child-top-row__actions
+  position absolute
+  font-size 80%
+  line-height ($base-spacing * .5)
+  text-align right
+  bottom 0
+  right $base-spacing
+  display flex
+  // transform translate(-50%, 0)
+  > a
+    padding ($base-spacing * .25)
+
+.child-top-row__column
+  flex 1 1 100%
+  padding ($base-spacing * 1.25) $base-spacing
+  > *:last-child
+    margin-bottom 0
+
+.child-top-row__spacer
+  flex 0 0 1px
+  background-color $spacer-color
+  margin ($base-spacing * 1.50) 0
+
+.child-top-row__column--image
+  flex 0 0 25%
+  padding $base-spacing
+  padding-right 0
+  > img
+    display block
+    width 100%
+    height auto
+    border-radius $base-border-radius
+
+.child-top-row__column--contacts
+  padding-left 0
+
+.child-top-row__detail-title
+  font-size 70%
+  text-transform uppercase
+  margin-top 0
+  margin-bottom ($base-spacing * .1)
+
+.child-top-row__detail-description
+  margin-top 0
+  margin-bottom ($base-spacing / 2)
+  line-height 1.4

@@ -1,3 +1,5 @@
 <nav class="top-menu">
-  <%= link_to 'Børn', children_path, class: 'top-menu__link' %>
+  <%= link_to children_path, class: 'top-menu__link' do %>
+    <%= fa_icon "child", text: 'Børn' %>
+  <% end %>
 </nav>

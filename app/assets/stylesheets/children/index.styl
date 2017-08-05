@@ -1,0 +1,19 @@
+.child-list
+  card-container()
+
+.child-list__row
+  card-row()
+
+.child-item
+  color $base-color
+  width "calc((100% - %s * (%s - 1)) / %s)" % ($base-spacing / 2 $child-row-items $child-row-items)
+  card()
+
+.child-item__image
+  width 100%
+  height auto
+
+.child-item__name
+  margin ($base-spacing / 4)
+  margin-bottom ($base-spacing / 2)
+  text-align center

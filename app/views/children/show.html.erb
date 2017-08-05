@@ -1,8 +1,65 @@
-<h2><%= @child.name %></h2>
+<div class="child-container">
+  <div class="child-top-row">
+    <div class="child-top-row__actions">
+      <%= link_to edit_child_path(@child) do %>
+        Redigér
+      <% end %>
+      <%= link_to child_path(@child), method: :delete, data: { confirm: 'Slet barn?' } do %>
+        Slet
+      <% end %>
+    </div>
 
-<p><%= @child.date_of_birth %></p>
-<p><%= @child.goals %></p>
-<p><%= @child.employee&.name %></p>
+    <div class="child-top-row__column child-top-row__column--image">
+      <img src="<%= @child.portrait_url %>" />
+    </div>
 
-<%= link_to 'Redigér barn', edit_child_path(@child) %>
-<%= link_to 'Slet barn', child_path(@child), method: :delete, data: { confirm: 'Slet barn?' } %>
+    <div class="child-top-row__column">
+      <h2 class="child-top-row__detail-title">Navn</h2>
+      <p class="child-top-row__detail-description">
+        <%= @child.name %>
+      </p>
+
+      <h2 class="child-top-row__detail-title">Alder</h2>
+      <p class="child-top-row__detail-description">
+        <% if @child.date_of_birth.present? %>
+          <%= years_since_date(@child.date_of_birth) %> år
+        <% else %>
+          Ikke angivet
+        <% end %>
+      </p>
+
+      <h2 class="child-top-row__detail-title">Kontaktpædagog</h2>
+      <p class="child-top-row__detail-description">
+        <% if @child.employee.present? %>
+          <%= @child.employee.name %>
+        <% else %>
+          Ikke angivet
+        <% end %>
+      </p>
+    </div>
+
+    <div class="child-top-row__column child-top-row__column--contacts">
+      <% @child.contacts.each do |contact| %>
+        <h2 class="child-top-row__detail-title"><%= contact.title %></h2>
+        <p class="child-top-row__detail-description">
+          <%= contact.name %>
+        </p>
+      <% end %>
+    </div>
+
+    <div class="child-top-row__spacer"></div>
+
+    <div class="child-top-row__column">
+      <h2 class="child-top-row__detail-title">Gasmål</h2>
+      <% if @child.goals.present? %>
+        <%= simple_format(@child.goals, class: 'child-top-row__detail-description') %>
+      <% else %>
+        <p class="child-top-row__detail-description">
+          Ikke angivet
+        </p>
+      <% end %>
+    </div>
+  </div>
+
+  <%= render partial: 'notes', locals: { notes: @child.notes } %>
+</div>
