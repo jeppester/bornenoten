@@ -1,0 +1,14 @@
+<div class="note-form-container">
+  <%= form_for [@child, @note], html: { class: "note-form" } do |f| %>
+    <%= f.hidden_field :child_id, value: @child.id %>
+    <%= f.text_area :content, class: "note-form__input", autofocus: true, placeholder: 'Skriv din note her...' %>
+    <div class="note-form__actions">
+      <%= link_to child_path(@child) do %>
+        <%= fa_icon "close" %>
+      <% end %>
+      <%= button_tag type: 'submit' do %>
+        <%= fa_icon "floppy-o" %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

@@ -1,9 +1,6 @@
 class NotesController < ApplicationController
-  before_action :set_note, only: [:show, :edit, :update, :destroy]
-
-  def index
-    @notes = Note.all
-  end
+  before_action :set_note, only: [:edit, :update, :destroy]
+  before_action :set_child, only: [:new, :edit, :update]
 
   def new
     @note = Note.new
@@ -17,9 +14,6 @@ class NotesController < ApplicationController
     else
       render :form
     end
-  end
-
-  def show
   end
 
   def edit
@@ -51,5 +45,9 @@ class NotesController < ApplicationController
 
   def set_note
     @note = Note.find(params[:id])
+  end
+
+  def set_child
+    @child = Child.find(params[:child_id])
   end
 end
