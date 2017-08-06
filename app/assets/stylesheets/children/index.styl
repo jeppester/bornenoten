@@ -12,8 +12,34 @@
 .child-item__image
   width 100%
   height auto
+  border-bottom 1px solid $spacer-color
+  box-shadow $base-box-shadow
+  display block
 
 .child-item__name
-  margin ($base-spacing / 4)
-  margin-bottom ($base-spacing / 2)
+  margin ($base-spacing / 2)
+  line-height ($base-spacing / 2)
   text-align center
+
+  color $base-color
+  position relative
+
+.child-item__image--new
+  margin-bottom ($base-spacing * 1.5)
+  border-bottom 1px solid transparent
+  box-shadow none
+
+.child-item__overlay
+  overlay()
+  display flex
+  justify-content center
+  flex-direction column
+  text-align center
+  padding ($base-spacing / 2)
+
+  > .fa
+    font-size 300%
+    color $brand-color
+  > h2
+    margin-top ($base-spacing / 4)
+    margin-bottom 0

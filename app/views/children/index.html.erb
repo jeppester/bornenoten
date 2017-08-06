@@ -4,13 +4,18 @@
       <% row_children.each do |child| %>
         <% if child != 'new' %>
           <%= link_to child_path(child), class: "child-item" do %>
-            <image class="child-item__image" src="<%= child.portrait_url %>" width="300" height="300" />
+            <img class="child-item__image" src="<%= child.portrait_url %>" width="300" height="300" />
             <h2 class="child-item__name"><%= child.name %></h2>
           <% end %>
         <% else %>
           <%= link_to new_child_path, class: "child-item" do %>
-            <image class="child-item__image" src="/images/child/new.png" width="300" height="300" />
-            <h2 class="child-item__name">Opret et nyt barn</h2>
+            <img class="child-item__image child-item__image--new" src="data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" />
+            <div class="child-item__overlay">
+              <%= fa_icon 'plus' %>
+              <h2>
+                Opret et nyt barn
+              </h2>
+            </div>
           <% end %>
         <% end %>
       <% end %>
