@@ -1,6 +1,6 @@
-<div class="note-list">
+<div class="card-list">
   <% [*notes, 'new'].each_slice(4) do |row_notes| %>
-    <div class="note-list__row">
+    <div class="card-list__row">
       <% row_notes.each do |note| %>
         <div class="note-item">
           <% if note != 'new' %>

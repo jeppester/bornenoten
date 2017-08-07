@@ -5,4 +5,19 @@ class Child < ApplicationRecord
   validates :name, presence: true
 
   mount_uploader :portrait, PortraitUploader
+
+  accepts_nested_attributes_for :contacts, allow_destroy: true, reject_if: :required_contact_fields_missing?
+
+  private
+
+  def required_contact_fields_missing?(attributes)
+    if attributes['name'].present? && attributes['title'].present?
+      false
+    elsif attributes['id'].present?
+      attributes['_destroy'] = 1
+      false
+    else
+      true
+    end
+  end
 end

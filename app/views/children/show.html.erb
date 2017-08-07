@@ -40,9 +40,13 @@
 
     <div class="child-top-row__column child-top-row__column--contacts">
       <% @child.contacts.each do |contact| %>
-        <h2 class="child-top-row__detail-title"><%= contact.title %></h2>
+        <h2 class="child-top-row__detail-title"><%= present_contact_title(contact.title) %></h2>
         <p class="child-top-row__detail-description">
           <%= contact.name %>
+          <% if contact.phone_number %>
+            <br />
+            <small><%= fa_icon 'phone' %> <%= contact.phone_number %></small>
+          <% end %>
         </p>
       <% end %>
     </div>

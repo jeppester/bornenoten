@@ -1,0 +1,43 @@
+.contacts-input__row
+  display flex
+  margin ($base-spacing / 4) 0
+
+  &:first-child)
+    margin-top 0
+
+  &:last-child)
+    margin-bottom 0
+
+  > *
+    margin 0 ($base-spacing / 8)
+    &:first-child
+      margin-left ($base-spacing / -4 - 1px)
+
+    &:last-child
+      margin-right ($base-spacing / -4 - 1px)
+
+.contacts-input__row--new > a
+  visibility hidden
+
+.contacts-input__spacer
+  height 1px
+  background-color $spacer-color
+  margin 0 ($base-spacing * .5)
+
+.contacts-input__destroy-button
+  flex 0 0 auto
+  width auto
+  border 1px solid $spacer-color
+  padding ($base-spacing / 5) ($base-spacing / 3)
+  border-radius ($base-border-radius / 2)
+  color $brand-color
+  font inherit
+  background transparent
+
+.contacts-input__destroy-button--active
+  box-shadow inset 0 5px $base-box-shadow
+
+.contacts-input__field
+  field()
+  flex 1 1 auto
+  width 1%

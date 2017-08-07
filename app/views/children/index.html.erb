@@ -1,6 +1,6 @@
-<div class="child-list">
+<div class="card-list">
   <% [*@children, 'new'].each_slice(4) do |row_children| %>
-    <div class="child-list__row">
+    <div class="card-list__row">
       <% row_children.each do |child| %>
         <% if child != 'new' %>
           <%= link_to child_path(child), class: "child-item" do %>

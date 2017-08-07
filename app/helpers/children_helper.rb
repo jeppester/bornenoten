@@ -13,4 +13,19 @@ module ChildrenHelper
       years - 1
     end
   end
+
+  def present_contact_title(title)
+    {
+      'mother' => 'Mor',
+      'father' => 'Far',
+      'foster_mother' => 'Plejemor',
+      'foster_father' => 'Plejefar'
+    }[title]
+  end
+
+  def contact_title_options(new_record: true)
+    options = *Contact::TITLES.map { |t| [present_contact_title(t), t] }
+    options.unshift ['Vælg relation', ''] if new_record
+    options
+  end
 end

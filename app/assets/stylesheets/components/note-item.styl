@@ -1,9 +1,3 @@
-.note-list
-  card-container()
-
-.note-list__row
-  card-row()
-
 .note-item
   color $base-color
   width "calc((100% - %s * (%s - 1)) / %s)" % ($base-spacing / 2 $note-row-items $note-row-items)
@@ -20,7 +14,7 @@
   display flex
   justify-content space-between
   border-bottom 1px solid $spacer-color
-  box-shadow $base-box-shadow
+  box-shadow 0px 10px $base-box-shadow
 
   > a
     padding ($base-spacing / 2) ($base-spacing / 2)

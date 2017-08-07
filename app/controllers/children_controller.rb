@@ -47,7 +47,9 @@ class ChildrenController < ApplicationController
       :date_of_birth,
       :goals,
       :employee_id,
-      :portrait
+      :portrait,
+      :remove_portrait,
+      contacts_attributes: [:id, :name, :phone_number, :title]
     )
   end
 

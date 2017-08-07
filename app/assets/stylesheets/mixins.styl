@@ -10,7 +10,7 @@ card-row()
 
 card()
   display block
-  box-shadow $base-box-shadow
+  box-shadow 0px 10px $base-box-shadow
   border-radius $base-border-radius
   overflow hidden
   background-color $brand-color-light
@@ -26,3 +26,16 @@ overlay()
   bottom 0
   left 0
   right 0
+
+field()
+  line-height 1.4
+  border-radius ($base-border-radius * .5)
+  border 1px solid $spacer-color
+  padding ($base-spacing / 5) ($base-spacing / 4)
+  background-color $brand-color-lighter
+  box-sizing border-box
+  width -webkit-fill-available
+  color inherit
+  font inherit
+  &:disabled
+    opacity .5

@@ -1,8 +1,45 @@
-<%= form_for(@child) do |f| %>
-  <%= f.text_field :name %>
-  <%= f.text_field :date_of_birth %>
-  <%= f.text_area :goals %>
-  <%= f.select :employee_id, [['Ingen valgt', '']] + Employee.all.pluck(:name, :id) %>
-  <%= f.file_field :portrait %>
-  <%= f.submit @child.new_record? ? 'Opret barn' : 'Gem ændringer' %>
+<%= form_for @child, html: { class: "child-form" } do |f| %>
+  <div class="child-form__fields">
+    <div class="child-form__row">
+      <div class="child-form__column child-form__column--image">
+        <%= render partial: 'shared/portrait_input', locals: { fields: f } %>
+      </div>
+
+      <div class="child-form__column">
+        <h2 class="child-form__field-title">Navn</h2>
+        <%= f.text_field :name, class: 'child-form__field' %>
+
+        <h2 class="child-form__field-title">Fødselsdato</h2>
+        <%= f.date_field :date_of_birth, class: 'child-form__field' %>
+
+        <h2 class="child-form__field-title">Kontaktpædagog</h2>
+        <%= f.select :employee_id, [['Ingen valgt', '']] + Employee.all.pluck(:name, :id), {}, class: 'child-form__field' %>
+      </div>
+
+      <div class="child-form__spacer-v"></div>
+
+      <div class="child-form__column child-form__column--goals">
+        <h2 class="child-form__field-title">Gasmål</h2>
+        <%= f.text_area :goals, class: 'child-form__field child-form__field--goals' %>
+      </div>
+    </div>
+
+    <div class="child-form__spacer child-form__spacer-h"></div>
+
+    <div class="child-form__row">
+      <div class="child-form__column">
+        <h2 class="child-form__field-title">Kontaktpersoner</h2>
+        <%= render partial: 'contacts_input', locals: { child_fields: f } %>
+      </div>
+    </div>
+  </div>
+
+  <div class="child-form__actions">
+    <%= link_to @child.new_record? ? children_path : child_path(@child) do %>
+      <%= fa_icon "close" %>
+    <% end %>
+    <%= button_tag type: 'submit' do %>
+      <%= fa_icon "floppy-o" %>
+    <% end %>
+  </div>
 <% end %>
