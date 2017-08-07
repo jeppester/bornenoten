@@ -1,9 +1,22 @@
 <nav class="top-menu">
   <%= link_to children_path, class: 'top-menu__link' do %>
-    <%= fa_icon "child", text: 'Børn' %>
+    <%= fa_icon "child", text: 'Børnenoten' %>
   <% end %>
 
-  <%= link_to employees_path, class: 'top-menu__link' do %>
-    <%= fa_icon "user", text: 'Ansatte' %>
+  <% if @slug.present? %>
+    <% @slug.each do |part| %>
+      <div class="top-menu__separator"></div>
+      <% if part.is_a? String %>
+        <div class="top-menu__link"><%= part %></div>
+      <% else %>
+        <%= link_to part[0], part[1], class: 'top-menu__link' %>
+      <% end %>
+    <% end %>
   <% end %>
+
+  <div class="top-menu__right">
+    <%= link_to employees_path, class: 'top-menu__link' do %>
+      <%= fa_icon "user", text: 'Ansatte' %>
+    <% end %>
+  </div>
 </nav>

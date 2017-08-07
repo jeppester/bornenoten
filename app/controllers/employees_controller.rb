@@ -3,10 +3,12 @@ class EmployeesController < ApplicationController
 
   def index
     @employees = Employee.all
+    @slug = ['Ansatte']
   end
 
   def new
     @employee = Employee.new
+    @slug = [['Ansatte', employees_path], 'Ny ansat']
     render :form
   end
 
@@ -15,11 +17,13 @@ class EmployeesController < ApplicationController
     if @employee.save
       redirect_to employees_path
     else
+      @slug = [['Ansatte', employees_path], 'Ny ansat']
       render :form
     end
   end
 
   def edit
+    @slug = [['Ansatte', employees_path], @employee.name]
     render :form
   end
 
@@ -27,6 +31,7 @@ class EmployeesController < ApplicationController
     if @employee.update update_params
       redirect_to employees_path
     else
+      @slug = [['Ansatte', employees_path], @employee.name]
       render :form
     end
   end

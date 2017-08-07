@@ -5,6 +5,17 @@
   z-index 1
 
 .top-menu__link
+  float left
   display inline-block
   padding ($base-spacing / 2) ($base-spacing / 4)
   color white
+
+.top-menu__separator
+  float left
+  padding ($base-spacing / 2) 0
+  color white
+  &:before
+    content '/'
+
+.top-menu__right
+  float right

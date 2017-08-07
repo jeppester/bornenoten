@@ -4,19 +4,23 @@ class NotesController < ApplicationController
 
   def new
     @note = Note.new
+    @slug = [[@child.name, child_path(@child)], 'Ny note']
     render :form
   end
 
   def create
     @note = Note.new create_params
+
     if @note.save
       redirect_to child_path(@note.child)
     else
+      @slug = [[@child.name, child_path(@child)], 'Ny note']
       render :form
     end
   end
 
   def edit
+    @slug = [[@child.name, child_path(@child)], 'Redigér note']
     render :form
   end
 
@@ -24,6 +28,7 @@ class NotesController < ApplicationController
     if @note.update update_params
       redirect_to child_path(@note.child)
     else
+      @slug = [[@child.name, child_path(@child)], 'Redigér note']
       render :form
     end
   end

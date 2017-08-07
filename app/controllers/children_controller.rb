@@ -7,6 +7,7 @@ class ChildrenController < ApplicationController
 
   def new
     @child = Child.new
+    @slug = ['Nyt barn']
     render :form
   end
 
@@ -15,14 +16,17 @@ class ChildrenController < ApplicationController
     if @child.save
       redirect_to @child
     else
+      @slug = ['Nyt barn']
       render :form
     end
   end
 
   def show
+    @slug = [@child.name]
   end
 
   def edit
+    @slug = [[@child.name, child_path(@child)], 'Redigér']
     render :form
   end
 
@@ -30,6 +34,7 @@ class ChildrenController < ApplicationController
     if @child.update update_params
       redirect_to @child
     else
+      @slug = [[@child.name, child_path(@child)], 'Redigér']
       render :form
     end
   end
