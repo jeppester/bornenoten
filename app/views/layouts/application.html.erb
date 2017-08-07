@@ -6,7 +6,12 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
-    <meta name=viewport content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
+    <% if @background_color.present? %>
+      <style type="text/css">
+        html { background-color: <%= @background_color %>; }
+      </style>
+    <% end %>
   </head>
 
   <body>

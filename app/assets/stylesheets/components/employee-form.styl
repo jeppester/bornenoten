@@ -10,12 +10,9 @@
 .employee-form
   card()
   color $base-color
-  display flex
-  flex-direction row
   background-color $brand-color-light
-
-.employee-form__inputs
-  flex 1 1 auto
+  width auto
+  padding-right $actions-width
 
 .employee-form__image
   margin $base-spacing
@@ -26,24 +23,17 @@
   field()
   margin $base-spacing
   margin-top 0
+  width "calc(100% - %s)" % ($base-spacing * 2)
+  box-sizing border-box
 
 .employee-form__actions
-  flex 0 0 auto
-  font-size 80%
-  line-height ($base-spacing * .5)
-  display flex
-  flex-direction column
-  justify-content space-between
-  border-left 1px solid $spacer-color
-  box-shadow 0px 10px $base-box-shadow
+  top-right-actions()
+  position absolute
+  top 0
+  border-top-right-radius $base-border-radius
 
 .employee-form__action
-  display block
-  padding ($base-spacing / 2) ($base-spacing / 2)
-  color $brand-color
-  font inherit
-  background transparent
-  border 0
+  action()
 
 .employee-form__input
   flex 1 1 auto

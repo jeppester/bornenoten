@@ -1,11 +1,11 @@
 <div class="child-container">
   <div class="child-top-row">
     <div class="child-top-row__actions">
-      <%= link_to edit_child_path(@child) do %>
-        Redigér
+      <%= link_to child_path(@child), class: 'child-top-row__action', method: :delete, data: { confirm: 'Slet barn?' } do %>
+        <%= fa_icon 'trash' %>
       <% end %>
-      <%= link_to child_path(@child), method: :delete, data: { confirm: 'Slet barn?' } do %>
-        Slet
+      <%= link_to edit_child_path(@child), class: 'child-top-row__action' do %>
+        <%= fa_icon 'pencil' %>
       <% end %>
     </div>
 
@@ -43,7 +43,7 @@
         <h2 class="child-top-row__detail-title"><%= present_contact_title(contact.title) %></h2>
         <p class="child-top-row__detail-description">
           <%= contact.name %>
-          <% if contact.phone_number %>
+          <% if contact.phone_number.present? %>
             <br />
             <small><%= fa_icon 'phone' %> <%= contact.phone_number %></small>
           <% end %>

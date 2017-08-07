@@ -16,6 +16,11 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+if defined? Stylus
+  Stylus.use(:nib)
+  Stylus.debug = Rails.env != "production"
+end
+
 module Bornenoten
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.

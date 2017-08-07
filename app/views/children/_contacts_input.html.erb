@@ -4,7 +4,7 @@
       <div class="contacts-input__row">
         <%= cf.select :title, contact_title_options(new_record: false), {}, class: 'contacts-input__field' %>
         <%= cf.text_field :name, class: 'contacts-input__field', placeholder: 'Indtast navn' %>
-        <%= cf.text_field :phone_number, class: 'contacts-input__field', placeholder: 'Indtast telefonnummer' %>
+        <%= cf.telephone_field :phone_number, class: 'contacts-input__field', placeholder: 'Indtast telefonnummer' %>
         <%= cf.hidden_field :id %>
         <%= cf.hidden_field :_destroy, value: 0, class: 'contacts-input__destroy-field' %>
         <a class="contacts-input__destroy-button"><%= fa_icon 'trash' %></i></a>
@@ -17,7 +17,7 @@
     <div class="contacts-input__row contacts-input__row--new">
       <%= cf.select :title, contact_title_options, {}, class: 'contacts-input__field' %>
       <%= cf.text_field :name, class: 'contacts-input__field', placeholder: 'Indtast navn' %>
-      <%= cf.text_field :phone_number, class: 'contacts-input__field', placeholder: 'Indtast telefonnummer' %>
+      <%= cf.telephone_field :phone_number, class: 'contacts-input__field', placeholder: 'Indtast telefonnummer' %>
       <a class="contacts-input__destroy-button"><%= fa_icon 'trash' %></a>
     </div>
   <% end %>

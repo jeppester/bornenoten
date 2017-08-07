@@ -28,14 +28,42 @@ overlay()
   right 0
 
 field()
+  appearance none
   line-height 1.4
   border-radius ($base-border-radius * .5)
   border 1px solid $spacer-color
   padding ($base-spacing / 5) ($base-spacing / 4)
   background-color $brand-color-lighter
-  box-sizing border-box
-  width -webkit-fill-available
+  width 100%
+  box-sizing content-box
+  min-height ($base-font-size * 1.4)
   color inherit
   font inherit
   &:disabled
     opacity .5
+
+top-right-actions()
+  position fixed
+  right 0
+  top $top-menu-height
+  line-height ($base-spacing * .5)
+  border 1px solid $spacer-color
+  border-right 0
+  border-top 0
+  border-bottom-left-radius $base-border-radius
+  background-color $brand-color-light
+  z-index 1
+  box-shadow 0px 10px $base-box-shadow
+
+action()
+  text-align center
+  margin 0
+  padding ($base-spacing / 2) ($base-spacing / 2)
+  color $brand-color
+  font inherit
+  font-size 80%
+  background transparent
+  border 0
+  display block
+  box-sizing content-box
+  width ($base-font-size * .8)

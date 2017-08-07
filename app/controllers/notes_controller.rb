@@ -5,6 +5,7 @@ class NotesController < ApplicationController
   def new
     @note = Note.new
     @slug = [[@child.name, child_path(@child)], 'Ny note']
+    @background_color = brand_color_light
     render :form
   end
 
@@ -21,6 +22,7 @@ class NotesController < ApplicationController
 
   def edit
     @slug = [[@child.name, child_path(@child)], 'Redigér note']
+    @background_color = brand_color_light
     render :form
   end
 

@@ -35,10 +35,10 @@
   </div>
 
   <div class="child-form__actions">
-    <%= link_to @child.new_record? ? children_path : child_path(@child) do %>
+    <%= link_to @child.new_record? ? children_path : child_path(@child), class: 'child-form__action' do %>
       <%= fa_icon "close" %>
     <% end %>
-    <%= button_tag type: 'submit' do %>
+    <%= button_tag type: 'submit', class: 'child-form__action' do %>
       <%= fa_icon "floppy-o" %>
     <% end %>
   </div>

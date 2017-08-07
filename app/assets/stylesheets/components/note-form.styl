@@ -1,44 +1,31 @@
 .note-form-container
-  display flex
-  flex-direction column
   box-sizing border-box
   height 100%
-  padding $base-spacing
 
 .note-form
-  card()
-  flex 1 1 100%
+  background-color $brand-color-light
+  height 100%
+  width 100%
   color $base-color
-  height 220px
-  display flex
-  flex-direction row
+  box-sizing border-box
+  padding-right $actions-width
 
 .note-form__actions
-  flex 0 0 auto
-  font-size 80%
-  line-height ($base-spacing * .5)
-  display flex
-  flex-direction column
-  justify-content space-between
-  border-left 1px solid $spacer-color
-  box-shadow 0px 10px $base-box-shadow
+  top-right-actions()
 
-  > a
-  > button
-    padding ($base-spacing / 2) ($base-spacing / 2)
-    color $brand-color
-    font inherit
-    background transparent
-    border 0
+.note-form__action
+  action()
 
 .note-form__input
-  flex 1 1 auto
   background-color transparent
+  width 100%
+  box-sizing border-box
   border 0
   padding ($base-spacing / 2)
   font inherit
   font-size 140%
   color inherit
   resize none
+  min-height 50vh
   &:focus
     outline none

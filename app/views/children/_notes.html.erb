@@ -5,10 +5,10 @@
         <div class="note-item">
           <% if note != 'new' %>
             <div class="note-item__actions">
-              <%= link_to edit_child_note_path(@child, note) do %>
+              <%= link_to edit_child_note_path(@child, note), class: 'note-item__action' do %>
                 <%= fa_icon "pencil" %>
               <% end %>
-              <%= link_to child_note_path(@child, note), method: :delete, data: { confirm: 'Slet note?' } do %>
+              <%= link_to child_note_path(@child, note), class: 'note-item__action', method: :delete, data: { confirm: 'Slet note?' } do %>
                 <%= fa_icon "trash" %>
               <% end %>
             </div>
@@ -16,7 +16,7 @@
               <%= simple_format(note.content) %>
             </div>
           <% else %>
-            <%= link_to new_child_note_path(@child), class: "note-item__content note-item__content--new" do %>
+            <%= link_to new_child_note_path(@child), class: 'note-item__content note-item__content--new' do %>
               <%= fa_icon 'plus' %>
               <h2>
                 Opret en ny note

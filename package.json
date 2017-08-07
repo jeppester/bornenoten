@@ -1,5 +1,7 @@
 {
-  "name": "børnenoten",
+  "name": "bornenoten",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "nib": "^1.1.2"
+  }
 }

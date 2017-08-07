@@ -3,10 +3,10 @@
     <%= f.hidden_field :child_id, value: @child.id %>
     <%= f.text_area :content, class: "note-form__input", autofocus: true, placeholder: 'Skriv din note her...' %>
     <div class="note-form__actions">
-      <%= link_to child_path(@child) do %>
+      <%= link_to child_path(@child), class: 'note-form__action' do %>
         <%= fa_icon "close" %>
       <% end %>
-      <%= button_tag type: 'submit' do %>
+      <%= button_tag type: 'submit', class: 'note-form__action' do %>
         <%= fa_icon "floppy-o" %>
       <% end %>
     </div>

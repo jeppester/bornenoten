@@ -8,6 +8,7 @@ class ChildrenController < ApplicationController
   def new
     @child = Child.new
     @slug = ['Nyt barn']
+    @background_color = brand_color_light
     render :form
   end
 
@@ -27,6 +28,7 @@ class ChildrenController < ApplicationController
 
   def edit
     @slug = [[@child.name, child_path(@child)], 'Redigér']
+    @background_color = brand_color_light
     render :form
   end
 
