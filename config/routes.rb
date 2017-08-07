@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   resources :children do
     resources :notes, except: [:index, :show]
   end
+
+  resources :employees, except: [:show]
 end

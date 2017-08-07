@@ -1,0 +1,24 @@
+<div class="card-list">
+  <% [*@employees, 'new'].each_slice(4) do |row_employees| %>
+    <div class="card-list__row">
+      <% row_employees.each do |employee| %>
+        <% if employee != 'new' %>
+          <%= link_to edit_employee_path(employee), class: "employee-item" do %>
+            <img class="employee-item__image" src="<%= employee.portrait_url %>" width="300" height="300" />
+            <h2 class="employee-item__name"><%= employee.name %></h2>
+          <% end %>
+        <% else %>
+          <%= link_to new_employee_path, class: "employee-item" do %>
+            <img class="employee-item__image employee-item__image--new" src="data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" />
+            <div class="employee-item__overlay">
+              <%= fa_icon 'plus' %>
+              <h2>
+                Opret en ny ansat
+              </h2>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

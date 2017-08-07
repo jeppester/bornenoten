@@ -1,0 +1,18 @@
+<div class="employee-form-container">
+  <%= form_for @employee, html: { class: 'employee-form' } do |f| %>
+    <div class="employee-form__inputs">
+      <div class="employee-form__image">
+        <%= render partial: 'shared/portrait_input', locals: { fields: f, placeholder_url: '/images/employee/portrait.png' } %>
+      </div>
+      <%= f.text_field :name, class: 'employee-form__name', placeholder: 'Indtast navn', autofocus: true %>
+    </div>
+    <div class="employee-form__actions">
+      <%= link_to employees_path do %>
+        <%= fa_icon "close" %>
+      <% end %>
+      <%= button_tag type: 'submit' do %>
+        <%= fa_icon "floppy-o" %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

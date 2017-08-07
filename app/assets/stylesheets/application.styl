@@ -7,9 +7,13 @@
 @import 'components/child-item'
 @import 'components/child-top-row'
 @import 'components/contacts-input'
+@import 'components/employee-form'
+@import 'components/employee-item'
+@import 'components/main-container'
 @import 'components/note-form'
 @import 'components/note-item'
 @import 'components/portrait-input'
+@import 'components/top-menu'
 
 html
   height 100%
@@ -35,18 +39,3 @@ h2
 a
   text-decoration none
   color $brand-color
-
-.top-menu
-  background-color $brand-color
-  box-shadow 0px 10px $base-box-shadow
-  z-index 1
-
-.top-menu__link
-  display inline-block
-  padding ($base-spacing / 2) $base-spacing
-  color white
-
-.main-container
-  flex 1 1 100%
-  overflow-y scroll
-  background-color $brand-color-dark

@@ -1,0 +1,39 @@
+.employee-item
+  color $base-color
+  width "calc((100% - %s * (%s - 1)) / %s)" % ($base-spacing / 2 $child-row-items $child-row-items)
+  card()
+
+.employee-item__image
+  width 100%
+  height auto
+  border-bottom 1px solid $spacer-color
+  box-shadow 0px 10px $base-box-shadow
+  display block
+
+.employee-item__name
+  margin ($base-spacing / 2)
+  line-height ($base-spacing / 2)
+  text-align center
+
+  color $base-color
+  position relative
+
+.employee-item__image--new
+  margin-bottom ($base-spacing * 1.5)
+  border-bottom 1px solid transparent
+  box-shadow none
+
+.employee-item__overlay
+  overlay()
+  display flex
+  justify-content center
+  flex-direction column
+  text-align center
+  padding ($base-spacing / 2)
+
+  > .fa
+    font-size 300%
+    color $brand-color
+  > h2
+    margin-top ($base-spacing / 4)
+    margin-bottom 0

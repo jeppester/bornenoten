@@ -5,7 +5,11 @@ removeButton = null
 fileInput = null
 removeInput = null
 
-window.bindPortraitInput = =>
+placeholderURL = null
+
+window.bindPortraitInput = (options) =>
+  placeholderURL = options.placeholderURL
+
   imageElement = document.querySelector('.portrait-input__image')
   changeButton = document.querySelector('.portrait-input__action--change')
   removeButton = document.querySelector('.portrait-input__action--remove')
@@ -35,5 +39,5 @@ setImage = (image) =>
 
 removeImage = () =>
   removeInput.checked = true
-  imageElement.style.backgroundImage = "url('/images/child/portrait.png')"
+  imageElement.style.backgroundImage = "url('#{placeholderURL}')"
   removeButton.classList.add('portrait-input__action--disabled')
