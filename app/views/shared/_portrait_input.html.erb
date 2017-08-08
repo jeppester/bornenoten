@@ -1,10 +1,11 @@
 <div class="portrait-input">
   <div class="child-form__column child-form__column--image portrait-input">
-    <div class="portrait-input__image" style="background-image: url('<%= fields.object.portrait_url %>')"></div>
+    <div class="portrait-input__image" style="background-image: url('<%= fields.object.remove_portrait? ? placeholder_url : fields.object.portrait_url %>')"></div>
     <%= fields.file_field :portrait, class: 'portrait-input__field portrait-input__field--file' %>
     <%= fields.check_box :remove_portrait, class: 'portrait-input__field portrait-input__field--remove' %>
+    <%= fields.hidden_field :portrait_cache %>
     <a class="portrait-input__action portrait-input__action--change"><%= fa_icon 'pencil' %></a>
-    <a class="portrait-input__action portrait-input__action--remove <%= fields.object.portrait.blank? ? 'portrait-input__action--disabled' : '' %>">
+    <a class="portrait-input__action portrait-input__action--remove <%= fields.object.portrait.blank? || fields.object.remove_portrait? ? 'portrait-input__action--disabled' : '' %>">
       <%= fa_icon 'trash' %>
     </a>
     <script type="text/javascript">

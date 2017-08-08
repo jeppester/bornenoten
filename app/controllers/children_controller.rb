@@ -55,6 +55,7 @@ class ChildrenController < ApplicationController
       :goals,
       :employee_id,
       :portrait,
+      :portrait_cache,
       :remove_portrait,
       contacts_attributes: [:id, :name, :phone_number, :title]
     )

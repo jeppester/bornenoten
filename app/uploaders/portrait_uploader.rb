@@ -2,7 +2,7 @@ class PortraitUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   def cache_dir
-    '../tmp/images'
+    'uploads/tmp'
   end
 
   def store_dir
