@@ -11,10 +11,12 @@
   display block
 
 .child-item__name
-  margin ($base-spacing / 2)
-  line-height ($base-spacing / 2)
+  margin ($base-spacing / 4)
+  line-height $base-spacing
   text-align center
-
+  white-space nowrap
+  text-overflow ellipsis
+  overflow hidden
   color $base-color
   position relative
 
