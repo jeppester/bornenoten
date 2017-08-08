@@ -36,7 +36,7 @@ class ChildrenController < ApplicationController
     if @child.update update_params
       redirect_to @child
     else
-      @slug = [[@child.name, child_path(@child)], 'Redigér']
+      @slug = [[@child.name_was, child_path(@child)], 'Redigér']
       render :form
     end
   end

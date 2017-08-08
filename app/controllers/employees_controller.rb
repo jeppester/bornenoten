@@ -31,7 +31,7 @@ class EmployeesController < ApplicationController
     if @employee.update update_params
       redirect_to employees_path
     else
-      @slug = [['Ansatte', employees_path], @employee.name]
+      @slug = [['Ansatte', employees_path], @employee.name_was]
       render :form
     end
   end
