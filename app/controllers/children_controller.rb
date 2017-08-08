@@ -18,6 +18,7 @@ class ChildrenController < ApplicationController
       redirect_to @child
     else
       @slug = ['Nyt barn']
+      @background_color = brand_color_light
       render :form
     end
   end
@@ -37,6 +38,7 @@ class ChildrenController < ApplicationController
       redirect_to @child
     else
       @slug = [[@child.name_was, child_path(@child)], 'Redigér']
+      @background_color = brand_color_light
       render :form
     end
   end
