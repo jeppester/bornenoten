@@ -1,5 +1,5 @@
 <div class="card-list">
-  <% [*notes, 'new'].each_slice(4) do |row_notes| %>
+  <% ['new', *notes.order(id: :desc)].each_slice(4) do |row_notes| %>
     <div class="card-list__row">
       <% row_notes.each do |note| %>
         <div class="note-item">
