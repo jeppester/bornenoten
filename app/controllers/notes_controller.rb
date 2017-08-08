@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
   before_action :set_note, only: [:edit, :update, :destroy]
-  before_action :set_child, only: [:new, :edit, :update]
+  before_action :set_child, only: [:new, :edit]
 
   def new
     @note = Note.new
@@ -15,8 +15,7 @@ class NotesController < ApplicationController
     if @note.save
       redirect_to child_path(@note.child)
     else
-      @slug = [[@child.name, child_path(@child)], 'Ny note']
-      render :form
+      redirect_to child_path(@note.child)
     end
   end
 
@@ -30,8 +29,8 @@ class NotesController < ApplicationController
     if @note.update update_params
       redirect_to child_path(@note.child)
     else
-      @slug = [[@child.name, child_path(@child)], 'Redigér note']
-      render :form
+      @note.destroy
+      redirect_to child_path(@note.child)
     end
   end
 
