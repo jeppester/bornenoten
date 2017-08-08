@@ -8,10 +8,15 @@ bindTextAreas = () ->
 resize = ({ target: textArea }) ->
   textArea.style.height = '0'
   computedStyle = getComputedStyle(textArea, null)
-  accumulatedBorderHeight = (
-    parseInt(computedStyle.borderTopWidth, 10) +
-    parseInt(computedStyle.borderBottomWidth, 10)
-  )
-  textArea.style.height = "#{textArea.scrollHeight + accumulatedBorderHeight}px"
+  newHeight = textArea.scrollHeight
+
+  if computedStyle.boxSizing == 'content-box'
+    newHeight -= parseInt(computedStyle.paddingTop, 10)
+    newHeight -= parseInt(computedStyle.paddingBottom, 10)
+  else
+    newHeight += parseInt(computedStyle.borderTopWidth, 10)
+    newHeight += parseInt(computedStyle.borderBottomWidth, 10)
+
+  textArea.style.height = "#{newHeight}px"
 
 document.addEventListener('DOMContentLoaded', bindTextAreas)
