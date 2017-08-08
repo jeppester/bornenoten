@@ -1,4 +1,4 @@
-<div class="contacts-input">
+  <div class="contacts-input">
   <% if child_fields.object.contacts.present? %>
     <%= child_fields.fields_for :contacts do |cf| %>
       <div class="contacts-input__row">
@@ -7,7 +7,7 @@
         <%= cf.telephone_field :phone_number, class: 'contacts-input__field', placeholder: 'Indtast telefonnummer' %>
         <%= cf.hidden_field :id %>
         <%= cf.hidden_field :_destroy, value: 0, class: 'contacts-input__destroy-field' %>
-        <a class="contacts-input__destroy-button"><%= fa_icon 'trash' %></i></a>
+        <button class="contacts-input__destroy-button"><%= fa_icon 'trash' %></i></button>
       </div>
     <% end %>
     <div class="contacts-input__spacer"></div>

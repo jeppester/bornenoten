@@ -3,7 +3,9 @@ contactsInput = null
 window.bindContactsInput = =>
   contactsInput = document.querySelector('.contacts-input')
   contactsInput.addEventListener 'input', updateEmptyRows
-  contactsInput.addEventListener 'click', toggleRow
+
+  for element in document.querySelectorAll('.contacts-input__destroy-button')
+    element.addEventListener 'click', toggleRow
 
 ###########################
 ## Automatic creation of new empty rows
@@ -48,21 +50,13 @@ addEmptyRow = =>
 ###########################
 ## Deletion of rows
 ###########################
-toggleRow = ({ target, currentTarget }) =>
-  destroyButton = getToggleButton(target)
-  return unless destroyButton
-
-  row = destroyButton.parentNode
+toggleRow = (event) ->
+  event.preventDefault()
+  button = event.currentTarget
+  row = button.parentNode
   destroyInput = row.querySelector('.contacts-input__destroy-button')
 
   destroy = !parseInt(destroyInput.value)
   destroyInput.value = if destroy then '1' else '0'
-  destroyButton.classList.toggle 'contacts-input__destroy-button--active', destroy
+  button.classList.toggle 'contacts-input__destroy-button--active', destroy
   element.disabled = destroy for element in row.querySelectorAll('input:not([type="hidden"]), select')
-
-getToggleButton = (target) =>
-  testElement = target
-  while testElement
-    return testElement if testElement.classList && testElement.classList.contains('contacts-input__destroy-button')
-    testElement = testElement.parentNode
-  false
