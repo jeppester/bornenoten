@@ -32,5 +32,16 @@ module Bornenoten
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Instead of wrapping erroneous fields in a div with an error class, add an
+    # error class directly to the fields
+    config.action_view.field_error_proc = Proc.new do |html_tag, instance|
+      class_attr_index = html_tag.index 'class="'
+      if class_attr_index
+        html_tag.insert class_attr_index + 7, 'field--error '
+      else
+        html_tag.insert html_tag.index('>'), ' class="field--error"'
+      end
+    end
   end
 end

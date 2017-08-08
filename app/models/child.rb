@@ -11,7 +11,7 @@ class Child < ApplicationRecord
   private
 
   def required_contact_fields_missing?(attributes)
-    if attributes['name'].present? && attributes['title'].present?
+    if attributes['name'].present? || attributes['title'].present?
       false
     elsif attributes['id'].present?
       attributes['_destroy'] = 1

@@ -23,9 +23,9 @@ module ChildrenHelper
     }[title]
   end
 
-  def contact_title_options(new_record: true)
+  def contact_title_options
     options = *Contact::TITLES.map { |t| [present_contact_title(t), t] }
-    options.unshift ['Vælg relation', ''] if new_record
+    options.unshift ['Vælg relation', '']
     options
   end
 end

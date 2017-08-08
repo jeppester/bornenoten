@@ -2,7 +2,7 @@
   <% if child_fields.object.contacts.present? %>
     <%= child_fields.fields_for :contacts do |cf| %>
       <div class="contacts-input__row">
-        <%= cf.select :title, contact_title_options(new_record: false), {}, class: 'contacts-input__field' %>
+        <%= cf.select :title, contact_title_options, {}, class: 'contacts-input__field' %>
         <%= cf.text_field :name, class: 'contacts-input__field', placeholder: 'Indtast navn' %>
         <%= cf.telephone_field :phone_number, class: 'contacts-input__field', placeholder: 'Indtast telefonnummer' %>
         <%= cf.hidden_field :id %>
